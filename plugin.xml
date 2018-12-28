@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-gaodelocation-chenyu" version="2.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>GaoDeLocation</name>
+    <js-module name="GaoDe" src="www/GaoDeLocation.js">
+        <clobbers target="GaoDe"/>
+    </js-module>
+    <preference name="ANDROID_API_KEY"/>
+    <preference name="IOS_API_KEY"/>
+    <engines>
+        <engine name="cordova-android" version="&gt;=7.0.0"/>
+    </engines>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="GaoDeLocation">
+                <param name="android-package" value="com.chenyu.GaoDeLocation.GaoDeLocation"/>
+            </feature>
+        </config-file>
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <meta-data android:name="com.amap.api.v2.apikey" android:value="$API_KEY"></meta-data>
+            <service android:name="com.amap.api.location.APSService"/>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+        </config-file>
+        <source-file src="src/android/GaoDeLocation.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+        <lib-file src="libs/android/AMap_Location_V3.5.0.jar"/>
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="GaoDeLocation">
+                <param name="ios-package" value="GaoDeLocation"/>
+            </feature>
+            <preference name="IOS_API_KEY" value="$IOS_API_KEY"/>
+        </config-file>
+        <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
+            <string>I need permission</string>
+        </config-file>
+        <config-file parent="NSLocationAlwaysUsageDescription" target="*-Info.plist">
+            <string>I need permission</string>
+        </config-file>
+        <config-file parent="NSLocationAlwaysAndWhenInUseUsageDescription" target="*-Info.plist">
+            <string>I need permission</string>
+        </config-file>
+        <source-file src="src/ios/GaoDeLocation.m"/>
+        <framework src="ExternalAccessory.framework"/>
+        <framework custom="true" src="libs/ios/AMapFoundationKit.framework"/>
+        <framework custom="true" src="libs/ios/AMapLocationKit.framework"/>
+        <!--<framework custom="true" src="libs/ios/MAMapKit.framework"/>-->
+        <framework src="libc++.tbd"/>
+        <framework src="libz.tbd"/>
+        <framework src="GLKit.framework"/>
+        <framework src="Security.framework"/>
+        <framework src="CoreTelephony.framework"/>
+        <framework src="SystemConfiguration.framework"/>
+    </platform>
+</plugin>

@@ -1,0 +1,19 @@
+{
+  "name": "cordova-plugin-gaodelocation-chenyu",
+  "version": "2.0.0",
+  "description": "高德地图定位sdk",
+  "cordova": {
+    "id": "cordova-plugin-gaodelocation-chenyu",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "chenyu",
+  "license": "ISC"
+}
