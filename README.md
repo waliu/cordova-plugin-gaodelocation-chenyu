@@ -57,7 +57,7 @@ window.GaoDe.getCurrentPosition(successCallback, failedCallback);
 }
 ```
 
-#### 4.Ionic2/3/4使用方法
+#### 4.Ionic2/3使用方法
 ```typescript
 // app.module.ts
 import { GaoDeLocation } from '@ionic-native/gao-de-location';
