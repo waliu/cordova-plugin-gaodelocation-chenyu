@@ -13,14 +13,16 @@ cordova-android >= 7.0.0
 
 ```
 cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
-npm i gaodelocation-chenyu
+npm install --save @ionic-native/gao-de-location
 ```
 
-#### 3.js使用方法
+#### 3.js/ionic4使用方法
 
 ```
 // 进行定位
 window.GaoDe.getCurrentPosition(successCallback, failedCallback);
+//ionic4 因为目前ionic native 主分支编译出来的ionic native不能够兼容ionic4。
+(<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback);
 ```
 
 获得定位信息，返回JSON格式数据:
@@ -58,7 +60,7 @@ window.GaoDe.getCurrentPosition(successCallback, failedCallback);
 #### 4.Ionic2/3/4使用方法
 ```typescript
 // app.module.ts
-import {GaoDe} from "gaodelocation-chenyu";
+import { GaoDeLocation } from '@ionic-native/gao-de-location';
 ...
 
 @NgModule({
@@ -66,7 +68,7 @@ import {GaoDe} from "gaodelocation-chenyu";
 
   providers: [
     ...
-    GaoDe
+    GaoDeLocation
     ...
   ]
   ...
@@ -74,15 +76,18 @@ import {GaoDe} from "gaodelocation-chenyu";
 export class AppModule { }
 ```
 ```
+import { GaoDeLocation,PositionOptions } from '@ionic-native/gao-de-location';
 @Component({ ... })
 export class xxxComponent {
   //注入
-  constructor(private gaode:GaoDe) {}
+  constructor(private gaoDeLocation: GaoDeLocation) {}
   //调用定位
   getCurrentPosition(){
-    this.gaode.getCurrentPosition().then((res=>{
-       console.log(res);
-    })).catch((err=>{}))
+    this.gaoDeLocation.getCurrentPosition()
+    .then((res: PositionOptions) => {
+       return console.log(res);
+    })
+    .catch((error) => console.error(error));
   }
 }
 ```
