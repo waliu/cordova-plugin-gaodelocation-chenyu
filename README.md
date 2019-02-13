@@ -16,12 +16,12 @@ cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_K
 npm install --save @ionic-native/gao-de-location
 ```
 
-#### 3.js/ionic4使用方法
+#### 3.js/ionic2、3使用方法
 
 ```
 // 进行定位
 window.GaoDe.getCurrentPosition(successCallback, failedCallback);
-//ionic4 因为目前ionic native 主分支编译出来的ionic native不能够兼容ionic4。
+//ionic2、3 因为目前ionic native 主分支编译出来的ionic native不能够兼容ionic2、3。
 (<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback);
 ```
 
@@ -57,7 +57,7 @@ window.GaoDe.getCurrentPosition(successCallback, failedCallback);
 }
 ```
 
-#### 4.Ionic2/3使用方法
+#### 4.Ionic4使用方法
 ```typescript
 // app.module.ts
 import { GaoDeLocation } from '@ionic-native/gao-de-location';
