@@ -19,9 +19,9 @@ npm install --save @ionic-native/gao-de-location
 #### 3.js/ionic2、3使用方法
 
 ```
-// 进行定位
+// js项目调用
 window.GaoDe.getCurrentPosition(successCallback, failedCallback);
-//ionic2、3 因为目前ionic native 主分支编译出来的ionic native不能够兼容ionic2、3。
+// ts项目调用。
 (<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback);
 ```
 
@@ -59,8 +59,10 @@ window.GaoDe.getCurrentPosition(successCallback, failedCallback);
 
 #### 4.Ionic4使用方法
 ```typescript
-// app.module.ts
-import { GaoDeLocation } from '@ionic-native/gao-de-location';
+// app.module.ts ionic3-
+import { GaoDeLocation , PositionOptions } from '@ionic-native/gao-de-location';
+//ionic 4+
+import { GaoDeLocation , PositionOptions } from '@ionic-native/gao-de-location/ngx';
 ...
 
 @NgModule({

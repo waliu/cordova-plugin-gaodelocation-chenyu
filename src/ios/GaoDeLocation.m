@@ -72,14 +72,17 @@
             [mDict setObject:[NSString stringWithFormat:@"%g",location.horizontalAccuracy] forKey:@"accuracy"];
             //        [mDict setObject:[NSString stringWithFormat:@"%g",location.bearing] forKey:@"bearing"];
             //        [mDict setObject:@"one2" forKey:@"satellites"];
-            [mDict setObject:regeocode.country forKey:@"country"];
-            [mDict setObject:regeocode.province forKey:@"province"];
-            [mDict setObject:regeocode.city forKey:@"city"];
-            [mDict setObject:regeocode.citycode forKey:@"citycode"];
-            [mDict setObject:regeocode.district forKey:@"district"];
-            [mDict setObject:regeocode.adcode forKey:@"adcode"];
-            [mDict setObject:regeocode.formattedAddress forKey:@"address"];
-            [mDict setObject:regeocode.POIName forKey:@"poi"];
+            if(regeocode.country){
+                [mDict setObject:regeocode.country forKey:@"country"];
+                [mDict setObject:regeocode.province forKey:@"province"];
+                [mDict setObject:regeocode.city forKey:@"city"];
+                [mDict setObject:regeocode.citycode forKey:@"citycode"];
+                [mDict setObject:regeocode.district forKey:@"district"];
+                [mDict setObject:regeocode.adcode forKey:@"adcode"];
+                [mDict setObject:regeocode.formattedAddress forKey:@"address"];
+                [mDict setObject:regeocode.POIName forKey:@"poi"];
+            }
+
             //        [mDict setObject:
             //         location.timestamp
             //          forKey:@"time"];
