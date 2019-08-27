@@ -11,6 +11,8 @@ cordova-android >= 7.0.0
 [申请ios密钥定位SDK](https://lbs.amap.com/api/ios-location-sdk/guide/create-project/get-key)
 #### 2.安装插件
 
+
+
 ```
 cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 npm install --save @ionic-native/gao-de-location
