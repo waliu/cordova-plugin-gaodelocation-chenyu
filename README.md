@@ -18,7 +18,7 @@ cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_K
 npm install --save @ionic-native/gao-de-location
 ```
 
-#### 3.js/ionic2、3使用方法
+#### 3.js/ts使用方法
 
 ```
 // js项目调用
