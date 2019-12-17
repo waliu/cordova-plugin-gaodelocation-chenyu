@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-gaodelocation-chenyu",
-  "version": "2.0.3",
+  "version": "2.0.5",
   "description": "高德地图定位sdk",
   "repository": {
     "type": "git",
