@@ -34,7 +34,7 @@
             <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
         </config-file>
         <source-file src="src/android/GaoDeLocation.java" target-dir="src/com/chenyu/GaoDeLocation"/>
-        <lib-file src="libs/android/AMap_Location_V3.5.0.jar"/>
+        <lib-file src="libs/android/AMap_Location_V4.7.2_20190927.jar"/>
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
