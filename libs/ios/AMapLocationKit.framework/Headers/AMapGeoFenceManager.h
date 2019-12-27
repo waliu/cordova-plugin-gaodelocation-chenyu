@@ -188,6 +188,14 @@ typedef NS_OPTIONS(NSUInteger, AMapGeoFenceRegionActiveStatus)
 
 @optional
 
+/**
+ *  @brief 当plist配置NSLocationAlwaysUsageDescription或者NSLocationAlwaysAndWhenInUseUsageDescription，并且[CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined，会调用代理的此方法。
+    此方法实现申请后台权限API即可：[locationManager requestAlwaysAuthorization](必须调用,不然无法正常获取定位权限)
+ *  @param manager 地理围栏管理类。
+ *  @param locationManager  需要申请后台定位权限的locationManager。
+ *  @since 2.6.2
+ */
+- (void)amapGeoFenceManager:(AMapGeoFenceManager *)manager doRequireLocationAuth:(CLLocationManager*)locationManager;
 
 /**
  * @brief 添加地理围栏完成后的回调，成功与失败都会调用
