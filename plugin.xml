@@ -52,7 +52,16 @@
         <config-file parent="NSLocationAlwaysAndWhenInUseUsageDescription" target="*-Info.plist">
             <string>I need permission</string>
         </config-file>
+
+        <source-file src="src/ios/GaoDeLocation.h"/>
         <source-file src="src/ios/GaoDeLocation.m"/>
+
+        <source-file src="src/ios/SerialLocation.h"/>
+        <source-file src="src/ios/SerialLocation.m"/>
+
+        <source-file src="src/ios/SingleLocaiton.h"/>
+        <source-file src="src/ios/SingleLocaiton.m"/>
+
         <framework src="ExternalAccessory.framework"/>
         <framework custom="true" src="libs/ios/AMapFoundationKit.framework"/>
         <framework custom="true" src="libs/ios/AMapLocationKit.framework"/>
