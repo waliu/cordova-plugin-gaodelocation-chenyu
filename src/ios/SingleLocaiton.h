@@ -3,7 +3,7 @@
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
 
-@protocol SingleLocaitonDelegate//协议的声明
+@protocol SingleLocaitonDelegate  //委托协议的声明
 
 - (void)PositionInfo:(CLLocation *)location Regeocode:(AMapLocationReGeocode *)regeocode;
 

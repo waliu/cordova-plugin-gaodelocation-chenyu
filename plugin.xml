@@ -43,6 +43,7 @@
             </feature>
             <preference name="IOS_API_KEY" value="$IOS_API_KEY"/>
         </config-file>
+
         <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
             <string>I need permission</string>
         </config-file>
@@ -53,6 +54,12 @@
             <string>I need permission</string>
         </config-file>
 
+        <config-file parent="UIBackgroundModes" target="*-Info.plist">
+            <array>
+                <string>location</string>
+            </array>
+        </config-file>
+
         <source-file src="src/ios/GaoDeLocation.h"/>
         <source-file src="src/ios/GaoDeLocation.m"/>
 
@@ -61,6 +68,9 @@
 
         <source-file src="src/ios/SingleLocaiton.h"/>
         <source-file src="src/ios/SingleLocaiton.m"/>
+
+<!--        <source-file src="src/ios/BackgroundLocation.h"/>-->
+<!--        <source-file src="src/ios/BackgroundLocation.m"/>-->
 
         <framework src="ExternalAccessory.framework"/>
         <framework custom="true" src="libs/ios/AMapFoundationKit.framework"/>

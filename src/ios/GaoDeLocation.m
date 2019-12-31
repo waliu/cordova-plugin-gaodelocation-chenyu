@@ -1,6 +1,7 @@
 /********* GaoDeLocation.m Cordova Plugin Implementation *******/
 
 #import "GaoDeLocation.h"
+#import "SerialLocation.h"
 
 @implementation GaoDeLocation
 - (void)pluginInitialize {
@@ -11,7 +12,10 @@
     self.singleLocaiton = [SingleLocaiton alloc].init;
 
     self.singleLocaiton.delegate = self;
+
+    self.serialLocation=[SerialLocation alloc].init;
 }
+
 
 /*
  * 单次定位
@@ -20,6 +24,15 @@
 - (void)getCurrentPosition:(CDVInvokedUrlCommand *)command {
     [self.singleLocaiton locAction];
 }
+
+-(void)startSerialLocation:(CDVInvokedUrlCommand *)command{
+    [self.serialLocation startSerialLocation];
+}
+
+- (void)stopSerialLocation:(CDVInvokedUrlCommand *)command {
+    [self.serialLocation stopSerialLocation];
+}
+
 
 #pragma mark - SingleLocaiton Delegate
 

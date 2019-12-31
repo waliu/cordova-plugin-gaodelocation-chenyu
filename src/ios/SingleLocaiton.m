@@ -2,8 +2,6 @@
 
 @implementation SingleLocaiton
 
-#pragma mark - Action Handle
-
 - (void)cleanUpAction {
     //停止定位
     [self.locationManager stopUpdatingLocation];
@@ -55,6 +53,8 @@
 
 #pragma mark - Initialization
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-retain-cycles"
 - (void)initCompleteBlock {
     self.completionBlock = ^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
         if (error != nil && error.code == AMapLocationErrorLocateFailed) {
@@ -79,14 +79,13 @@
         }
         //是否为逆地址编码
         if (regeocode) {
-
             [self.delegate PositionInfo:location Regeocode:regeocode];
         } else {
-
             [self.delegate PositionInfo:location Regeocode:regeocode];
         }
     };
 }
+#pragma clang diagnostic pop
 
 #pragma mark - Life Cycle
 
