@@ -7,6 +7,8 @@
 
 - (void)PositionInfo:(CLLocation *)location Regeocode:(AMapLocationReGeocode *)regeocode;
 
+- (void)Erro:(NSError *)error;
+
 @end
 
 @interface SingleLocaiton : NSObject <AMapLocationManagerDelegate> {

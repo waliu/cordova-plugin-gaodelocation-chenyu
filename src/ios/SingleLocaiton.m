@@ -47,6 +47,8 @@
 
 - (void)locAction {
     //进行单次定位请求
+
+
     [self.locationManager requestLocationWithReGeocode:NO completionBlock:self.completionBlock];
 }
 
@@ -77,12 +79,7 @@
         } else {
             //没有错误：location有返回值，regeocode是否有返回值取决于是否进行逆地理操作，进行annotation的添加
         }
-        //是否为逆地址编码
-        if (regeocode) {
-            [self.delegate PositionInfo:location Regeocode:regeocode];
-        } else {
-            [self.delegate PositionInfo:location Regeocode:regeocode];
-        }
+        [self.delegate PositionInfo:location Regeocode:regeocode];
     };
 }
 #pragma clang diagnostic pop

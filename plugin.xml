@@ -33,8 +33,16 @@
             <uses-permission android:name="android.permission.BLUETOOTH"/>
             <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
         </config-file>
+
         <source-file src="src/android/GaoDeLocation.java" target-dir="src/com/chenyu/GaoDeLocation"/>
-        <lib-file src="libs/android/AMap_Location_V4.7.2_20190927.jar"/>
+
+        <source-file src="src/android/SingleLocaiton.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SingleLocaitonDelegate.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SingleLocaitonInterface.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <lib-file src="libs/android/AMap_Location_V4.8.0_20191210.jar"/>
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
