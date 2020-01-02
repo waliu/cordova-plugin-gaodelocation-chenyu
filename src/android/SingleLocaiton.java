@@ -19,7 +19,6 @@ public class SingleLocaiton implements SingleLocaitonInterface{
   private AMapLocationClientOption locationOption = null;
   private Context mContext;
 
-  private GaoDeLocation gaoDeLocation;
 
   List<SingleLocaitonDelegate> l = new ArrayList<>();
 
@@ -59,7 +58,7 @@ public class SingleLocaiton implements SingleLocaitonInterface{
    * @author hongming.wang
    * @since 2.8.0
    */
-  private void stopLocation() {
+  public void stopLocation() {
     // 停止定位
     locationClient.stopLocation();
   }
@@ -131,7 +130,7 @@ public class SingleLocaiton implements SingleLocaitonInterface{
   }
 
   @Override
-  public void addObserver(SingleLocaitonDelegate singleLocaitonDelegate) {
+  public void setSingleLocaitonDelegate(SingleLocaitonDelegate singleLocaitonDelegate) {
     if (l==null) {
       throw new NullPointerException();
     }
@@ -153,11 +152,5 @@ public class SingleLocaiton implements SingleLocaitonInterface{
       o.PositionInfo(location);
     }
   }
-
-  @Override
-  public void eventAll(SingleLocaitonInterface s, SingleLocaitonDelegate obj, Object o) {
-
-  }
-
 
 }

@@ -36,6 +36,12 @@
 
         <source-file src="src/android/GaoDeLocation.java" target-dir="src/com/chenyu/GaoDeLocation"/>
 
+        <source-file src="src/android/SerialLocation.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SerialLocationDelegate.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SerialLocationInterface.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
         <source-file src="src/android/SingleLocaiton.java" target-dir="src/com/chenyu/GaoDeLocation"/>
 
         <source-file src="src/android/SingleLocaitonDelegate.java" target-dir="src/com/chenyu/GaoDeLocation"/>

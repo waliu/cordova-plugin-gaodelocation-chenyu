@@ -7,7 +7,7 @@ import org.json.JSONException;
 public interface SingleLocaitonInterface {
 
 
-  void addObserver(SingleLocaitonDelegate singleLocaitonDelegate);
+  void setSingleLocaitonDelegate(SingleLocaitonDelegate singleLocaitonDelegate);
 
   /**
    * 移除所有对象
@@ -17,7 +17,5 @@ public interface SingleLocaitonInterface {
 
   void PositionInfo(AMapLocation location) throws JSONException;
 
-
-  void eventAll(SingleLocaitonInterface s,SingleLocaitonDelegate obj,Object o);
 
 }
