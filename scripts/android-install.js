@@ -24,7 +24,7 @@ module.exports = function(context) {
     fs.writeFile(targetDir+"/SerialLocation.java", str, function (err) {
         if (err) return err;
     });
-    
+
     // console.log("packageName："+packageName);
 
     // console.log(targetDir);
