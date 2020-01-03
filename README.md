@@ -51,16 +51,6 @@ successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
 ages|待续|定位参数
 
-开启持续定位
-
-startSerialLocation(successCallback,failedCallback,ages);
-
-参数|类型|说明
---|:--:|--:
-successCallback|funtion|回调函数
-failedCallback|funtion|回调函数
-ages|待续|定位参数
-
 ```
 //调用实例
 getCurrentPosition() {
@@ -71,6 +61,16 @@ getCurrentPosition() {
     },null);
   }
 ```
+
+开启持续定位
+
+startSerialLocation(successCallback,failedCallback,ages);
+
+参数|类型|说明
+--|:--:|--:
+successCallback|funtion|回调函数
+failedCallback|funtion|回调函数
+ages|待续|定位参数
 
 
 停止持续定位
