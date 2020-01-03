@@ -25,7 +25,7 @@
  */
 - (void)getCurrentPosition:(CDVInvokedUrlCommand *)command {
 
-    [self.singleLocaiton locAction];
+    [self.singleLocaiton reGeocodeAction];
 
     self.singleCallbackId = command.callbackId;
 
