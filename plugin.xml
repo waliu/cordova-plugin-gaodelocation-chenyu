@@ -14,8 +14,8 @@
 
         <hook type="after_plugin_add" src="scripts/android-install.js"/>
         <hook type="after_plugin_install" src="scripts/android-install.js"/>
-        <hook type="before_plugin_rm" src="scripts/android-install.js"/>
-        <hook type="before_plugin_uninstall" src="scripts/android-install.js"/>
+<!--        <hook type="before_plugin_rm" src="scripts/android-install.js"/>-->
+<!--        <hook type="before_plugin_uninstall" src="scripts/android-install.js"/>-->
 
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="GaoDeLocation">
