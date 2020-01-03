@@ -119,11 +119,19 @@ typedef void (^AMapLocatingCompletionBlock)(CLLocation *location, AMapLocationRe
 
 #pragma mark - AMapLocationManagerDelegate
 
-
 ///AMapLocationManagerDelegate 协议定义了发生错误时的错误回调方法，连续定位的回调方法等。
 @protocol AMapLocationManagerDelegate <NSObject>
 
 @optional
+
+/**
+ *  @brief 当plist配置NSLocationAlwaysUsageDescription或者NSLocationAlwaysAndWhenInUseUsageDescription，并且[CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined，会调用代理的此方法。
+     此方法实现调用申请后台权限API即可：[locationManager requestAlwaysAuthorization](必须调用,不然无法正常获取定位权限)
+ *  @param manager 定位 AMapLocationManager 类。
+ *  @param locationManager  需要申请后台定位权限的locationManager。
+ *  @since 2.6.2
+ */
+- (void)amapLocationManager:(AMapLocationManager *)manager doRequireLocationAuth:(CLLocationManager*)locationManager;
 
 /**
  *  @brief 当定位发生错误时，会调用代理的此方法。

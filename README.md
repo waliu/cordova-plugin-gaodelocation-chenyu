@@ -104,6 +104,4 @@ export class xxxComponent {
   }
 }
 ```
-#### 5.[关于Androd插件的来源](https://blog.csdn.net/u010730897/article/details/54969638)
-#### 6.ios版本本人自制
-#### 7.联系我:QQ群 390736068
+#### 5.联系我:QQ群 390736068

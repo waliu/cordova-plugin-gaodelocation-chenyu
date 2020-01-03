@@ -12,7 +12,7 @@
 #ifndef AMapLoctionVersion_h
 #define AMapLoctionVersion_h
 
-#define AMapLocationVersionNumber                   20601
+#define AMapLocationVersionNumber                   20604
 #define AMapLocationFoundationVersionMinRequired    10400
 
 // 依赖库版本检测

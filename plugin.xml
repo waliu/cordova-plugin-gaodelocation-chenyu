@@ -11,6 +11,12 @@
         <engine name="cordova-android" version="&gt;=7.0.0"/>
     </engines>
     <platform name="android">
+
+        <hook type="after_plugin_add" src="scripts/android-install.js"/>
+        <hook type="after_plugin_install" src="scripts/android-install.js"/>
+<!--        <hook type="before_plugin_rm" src="scripts/android-install.js"/>-->
+<!--        <hook type="before_plugin_uninstall" src="scripts/android-install.js"/>-->
+
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="GaoDeLocation">
                 <param name="android-package" value="com.chenyu.GaoDeLocation.GaoDeLocation"/>
@@ -32,9 +38,27 @@
             <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
             <uses-permission android:name="android.permission.BLUETOOTH"/>
             <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+            <!--如果设置了target >= 28 如果需要启动后台定位则必须声明这个权限-->
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+            <!--如果您的应用需要后台定位权限，且有可能运行在Android Q设备上,并且设置了target>28，必须增加这个权限声明-->
+            <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
         </config-file>
+
         <source-file src="src/android/GaoDeLocation.java" target-dir="src/com/chenyu/GaoDeLocation"/>
-        <lib-file src="libs/android/AMap_Location_V4.7.2_20190927.jar"/>
+
+        <source-file src="src/android/SerialLocation.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SerialLocationDelegate.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SerialLocationInterface.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SingleLocaiton.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SingleLocaitonDelegate.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <source-file src="src/android/SingleLocaitonInterface.java" target-dir="src/com/chenyu/GaoDeLocation"/>
+
+        <lib-file src="libs/android/AMap_Location_V4.8.0_20191210.jar"/>
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
@@ -43,6 +67,7 @@
             </feature>
             <preference name="IOS_API_KEY" value="$IOS_API_KEY"/>
         </config-file>
+
         <config-file parent="NSLocationWhenInUseUsageDescription" target="*-Info.plist">
             <string>I need permission</string>
         </config-file>
@@ -52,7 +77,25 @@
         <config-file parent="NSLocationAlwaysAndWhenInUseUsageDescription" target="*-Info.plist">
             <string>I need permission</string>
         </config-file>
+
+        <config-file parent="UIBackgroundModes" target="*-Info.plist">
+            <array>
+                <string>location</string>
+            </array>
+        </config-file>
+
+        <source-file src="src/ios/GaoDeLocation.h"/>
         <source-file src="src/ios/GaoDeLocation.m"/>
+
+        <source-file src="src/ios/SerialLocation.h"/>
+        <source-file src="src/ios/SerialLocation.m"/>
+
+        <source-file src="src/ios/SingleLocaiton.h"/>
+        <source-file src="src/ios/SingleLocaiton.m"/>
+
+        <!--        <source-file src="src/ios/BackgroundLocation.h"/>-->
+        <!--        <source-file src="src/ios/BackgroundLocation.m"/>-->
+
         <framework src="ExternalAccessory.framework"/>
         <framework custom="true" src="libs/ios/AMapFoundationKit.framework"/>
         <framework custom="true" src="libs/ios/AMapLocationKit.framework"/>
