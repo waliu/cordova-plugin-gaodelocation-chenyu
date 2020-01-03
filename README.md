@@ -31,10 +31,65 @@ $ cordova plugin add 文件路径  --variable  ANDROID_API_KEY=your android key 
 
 ```
 // js项目调用
-window.GaoDe.getCurrentPosition(successCallback, failedCallback);
+window.GaoDe.getCurrentPosition(successCallback, failedCallback,null);
+window.GaoDe.startSerialLocation(successCallback, failedCallback,null);
+window.GaoDe.stopSerialLocation(successCallback, failedCallback,null);
 // ts项目调用。
-(<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback);
+(<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback,null);
+(<any>window).GaoDe.startSerialLocation(successCallback, failedCallback,null);
+(<any>window).GaoDe.stopSerialLocation(successCallback, failedCallback,null);
 ```
+
+
+获取单次定位
+
+getCurrentPosition(successCallback,failedCallback,ages);
+
+参数|类型|说明
+--|:--:|--:
+successCallback|funtion|回调函数
+failedCallback|funtion|回调函数
+ages|待续|定位参数
+
+开启持续定位
+
+startSerialLocation(successCallback,failedCallback,ages);
+
+参数|类型|说明
+--|:--:|--:
+successCallback|funtion|回调函数
+failedCallback|funtion|回调函数
+ages|待续|定位参数
+
+```
+//调用实例
+getCurrentPosition() {
+    (<any>window).GaoDe.getCurrentPosition( (res) => {
+      console.log(JSON.stringify(res));
+    }, (e) => {
+
+    },null);
+  }
+```
+
+
+停止持续定位
+
+stopSerialLocation(successCallback,failedCallback,ages);
+
+参数|类型|说明
+--|:--:|--:
+successCallback|funtion|回调函数
+failedCallback|funtion|回调函数
+ages|待续|定位参数
+
+
+
+
+
+
+
+
 
 获得定位信息，返回JSON格式数据:
 
