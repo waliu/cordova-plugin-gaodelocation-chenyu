@@ -11,6 +11,12 @@
         <engine name="cordova-android" version="&gt;=7.0.0"/>
     </engines>
     <platform name="android">
+
+        <hook type="after_plugin_add" src="scripts/android-install.js"/>
+        <hook type="after_plugin_install" src="scripts/android-install.js"/>
+        <hook type="before_plugin_rm" src="scripts/android-install.js"/>
+        <hook type="before_plugin_uninstall" src="scripts/android-install.js"/>
+
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="GaoDeLocation">
                 <param name="android-package" value="com.chenyu.GaoDeLocation.GaoDeLocation"/>
@@ -32,6 +38,10 @@
             <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
             <uses-permission android:name="android.permission.BLUETOOTH"/>
             <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+            <!--如果设置了target >= 28 如果需要启动后台定位则必须声明这个权限-->
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+            <!--如果您的应用需要后台定位权限，且有可能运行在Android Q设备上,并且设置了target>28，必须增加这个权限声明-->
+            <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
         </config-file>
 
         <source-file src="src/android/GaoDeLocation.java" target-dir="src/com/chenyu/GaoDeLocation"/>
@@ -83,8 +93,8 @@
         <source-file src="src/ios/SingleLocaiton.h"/>
         <source-file src="src/ios/SingleLocaiton.m"/>
 
-<!--        <source-file src="src/ios/BackgroundLocation.h"/>-->
-<!--        <source-file src="src/ios/BackgroundLocation.m"/>-->
+        <!--        <source-file src="src/ios/BackgroundLocation.h"/>-->
+        <!--        <source-file src="src/ios/BackgroundLocation.m"/>-->
 
         <framework src="ExternalAccessory.framework"/>
         <framework custom="true" src="libs/ios/AMapFoundationKit.framework"/>
