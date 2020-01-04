@@ -99,9 +99,14 @@ public class GaoDeLocation extends CordovaPlugin implements SingleLocaitonDelega
      * @param callbackContext
      */
 
-    public void stopSerialLocation(CallbackContext callbackContext) {
+    public void stopSerialLocation(CallbackContext callbackContext) throws JSONException {
         this.serialLocation.stopLocation();
-//        serialLocationCC = callbackContext;
+
+        JSONObject json = new JSONObject();
+
+        json.put("code", "200");
+
+        callbackContext.success(json);
     }
 
     /**

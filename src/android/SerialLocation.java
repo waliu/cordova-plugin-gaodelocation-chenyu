@@ -14,7 +14,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.AMapLocationQualityReport;
-import _{packageName}_.R;
+import com.hosp123.testapp.location.R;
 
 import org.json.JSONException;
 
@@ -172,7 +172,7 @@ public class SerialLocation implements SerialLocationInterface{
         builder
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(getAppName(mContext))
-                .setContentText("高德定位正在后台运行")
+                .setContentText("正在后台运行")
                 .setWhen(System.currentTimeMillis());
 
         if (android.os.Build.VERSION.SDK_INT >= 16) {
