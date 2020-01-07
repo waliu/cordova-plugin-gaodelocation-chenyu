@@ -30,13 +30,13 @@ $ cordova plugin add 文件路径  --variable  ANDROID_API_KEY=your android key 
 
 ```
 // js项目调用
-window.GaoDe.getCurrentPosition(successCallback, failedCallback,”“);
-window.GaoDe.startSerialLocation(successCallback, failedCallback,”“);
-window.GaoDe.stopSerialLocation(successCallback, failedCallback,”“);
+window.GaoDe.getCurrentPosition(successCallback, failedCallback,option);
+window.GaoDe.startSerialLocation(successCallback, failedCallback,option);
+window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 // ts项目调用。
-(<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback,”“);
-(<any>window).GaoDe.startSerialLocation(successCallback, failedCallback,”“);
-(<any>window).GaoDe.stopSerialLocation(successCallback, failedCallback,”“);
+(<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback,option);
+(<any>window).GaoDe.startSerialLocation(successCallback, failedCallback,option);
+(<any>window).GaoDe.stopSerialLocation(successCallback, failedCallback);
 ```
 
 
