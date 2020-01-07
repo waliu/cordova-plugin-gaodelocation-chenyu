@@ -24,12 +24,29 @@
     return self;
 }
 
-- (void)startSerialLocation {
+- (void)startSerialLocation:(NSMutableDictionary *)message {
+    [self setLocationOption:message];
     [self.locationManager startUpdatingLocation];
 }
 
 - (void)stopSerialLocation {
     [self.locationManager stopUpdatingLocation];
+}
+
+- (void)setLocationOption:(NSMutableDictionary *)message{
+    NSMutableDictionary *iosOption=message[@"iosOption"];
+    BOOL pausesLocationUpdatesAutomatically= [iosOption[@"pausesLocationUpdatesAutomatically"] boolValue];
+    BOOL allowsBackgroundLocationUpdates= [iosOption[@"allowsBackgroundLocationUpdates"] boolValue];
+    BOOL locatingWithReGeocode= [iosOption[@"locatingWithReGeocode"] boolValue];
+
+    //设置不允许系统暂停定位
+    [self.locationManager setPausesLocationUpdatesAutomatically:pausesLocationUpdatesAutomatically];
+
+    //设置允许在后台定位
+    [self.locationManager setAllowsBackgroundLocationUpdates:allowsBackgroundLocationUpdates];
+
+    //设置允许连续定位逆地理
+    [self.locationManager setLocatingWithReGeocode:locatingWithReGeocode];
 }
 
 #pragma mark - AMapLocationManager Delegate

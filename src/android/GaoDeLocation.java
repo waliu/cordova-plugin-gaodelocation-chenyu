@@ -41,19 +41,20 @@ public class GaoDeLocation extends CordovaPlugin implements SingleLocaitonDelega
      * */
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-
         if (action.equals("getCurrentPosition")) {
             if (this.isNeedCheckPermissions(needPermissions)) {
                 this.checkPermissions(needPermissions);
             } else {
-                this.singleLocaiton(callbackContext);
+                JSONObject message = args.getJSONObject(0);
+                this.singleLocaiton(callbackContext,message);
             }
             return true;
         } else if (action.equals("startSerialLocation")) {
             if (this.isNeedCheckPermissions(needPermissions)) {
                 this.checkPermissions(needPermissions);
             } else {
-                this.startSerialLocation(callbackContext);
+                JSONObject message = args.getJSONObject(0);
+                this.startSerialLocation(callbackContext,message);
             }
             return true;
         } else if (action.equals("stopSerialLocation")) {
@@ -77,20 +78,22 @@ public class GaoDeLocation extends CordovaPlugin implements SingleLocaitonDelega
     /**
      * 调用单次定位
      * @param callbackContext
+     * @param message
      */
 
-    public void singleLocaiton(CallbackContext callbackContext) {
-        this.singleLocaiton.startLocation();
+    public void singleLocaiton(CallbackContext callbackContext, JSONObject message) throws JSONException {
+        this.singleLocaiton.startLocation(message);
         singleLocaitonCC = callbackContext;
     }
 
     /**
      * 调用持续定位
      * @param callbackContext
+     * @param message
      */
 
-    public void startSerialLocation(CallbackContext callbackContext) {
-        this.serialLocation.startLocation();
+    public void  startSerialLocation(CallbackContext callbackContext, JSONObject message) throws JSONException {
+        this.serialLocation.startLocation(message);
         serialLocationCC = callbackContext;
     }
 
@@ -170,6 +173,12 @@ public class GaoDeLocation extends CordovaPlugin implements SingleLocaitonDelega
 
         }
     }
+
+    /**
+     *
+     * @param permissions
+     * @return
+     */
 
     private boolean isNeedCheckPermissions(String... permissions) {
         List<String> needRequestPermissonList = findNeedPermissions(permissions);

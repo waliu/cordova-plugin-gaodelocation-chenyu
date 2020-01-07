@@ -12,7 +12,7 @@
 
 @property(nonatomic, strong) AMapLocationManager *locationManager;
 
-- (void)startSerialLocation;
+- (void)startSerialLocation:(NSMutableDictionary *)message;
 
 - (void)stopSerialLocation;
 

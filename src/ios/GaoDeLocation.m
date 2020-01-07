@@ -25,7 +25,7 @@
  */
 - (void)getCurrentPosition:(CDVInvokedUrlCommand *)command {
 
-    [self.singleLocaiton reGeocodeAction];
+    [self.singleLocaiton getCurrentPosition:command.arguments[0]];
 
     self.singleCallbackId = command.callbackId;
 
@@ -36,7 +36,7 @@
  */
 - (void)startSerialLocation:(CDVInvokedUrlCommand *)command {
 
-    [self.serialLocation startSerialLocation];
+    [self.serialLocation startSerialLocation:command.arguments[0]];
 
     self.serialCallbackId = command.callbackId;
 }
@@ -63,6 +63,11 @@
 - (void)PositionInfo:(CLLocation *)location Regeocode:(AMapLocationReGeocode *)regeocode {
     [self sendPositionInfo:location Regeocode:regeocode callbackId:self.singleCallbackId];
 }
+
+- (void)Erro:(NSError *)error {
+    
+}
+
 
 #pragma mark - SerialLocation Delegate
 

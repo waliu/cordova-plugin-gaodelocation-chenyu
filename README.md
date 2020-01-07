@@ -48,16 +48,39 @@ getCurrentPosition(successCallback,failedCallback,ages);
 --|:--:|--:
 successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
-ages|待续|定位参数
+option|待续|定位参数
 
 ```
 //调用实例
 getCurrentPosition() {
+    let obj={
+      androidOption:{
+        locationMode:1,
+        gpsFirst:false,
+        HttpTimeOut:30000,
+        interval:2000,
+        needAddress:true,
+        onceLocation:false,
+        onceLocationLatest:false,
+        locationProtocol:1,
+        sensorEnable:false,
+        wifiScan:true,
+        locationCacheEnable:true
+      },
+      iosOption:{
+        desiredAccuracy:4,
+        pausesLocationUpdatesAutomatically:"YES",
+        allowsBackgroundLocationUpdates:"NO",
+        locationTimeout:10,
+        reGeocodeTimeout:5,
+        locatingWithReGeocode:"YES"
+      }
+    };
     (<any>window).GaoDe.getCurrentPosition( (res) => {
       console.log(JSON.stringify(res));
-    }, (e) => {
+    }, () => {
 
-    },”“);
+    },obj);
   }
 ```
 
@@ -69,8 +92,37 @@ startSerialLocation(successCallback,failedCallback,ages);
 --|:--:|--:
 successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
-ages|待续|定位参数
+option|待续|定位参数
 
+```
+startSerialLocation() {
+    let obj={
+      androidOption:{
+        locationMode:1,
+        gpsFirst:false,
+        HttpTimeOut:30000,
+        interval:2000,
+        needAddress:true,
+        onceLocation:false,
+        onceLocationLatest:false,
+        locationProtocol:1,
+        sensorEnable:false,
+        wifiScan:true,
+        locationCacheEnable:true
+      },
+      iosOption:{
+        pausesLocationUpdatesAutomatically:"YES",
+        allowsBackgroundLocationUpdates:"NO",
+        locatingWithReGeocode:"YES"
+      }
+    };
+    (<any>window).GaoDe.startSerialLocation( (res) => {
+      console.log(JSON.stringify(res));
+    }, (e) => {
+
+    },obj);
+  }
+```
 
 停止持续定位
 
@@ -80,7 +132,6 @@ stopSerialLocation(successCallback,failedCallback,ages);
 --|:--:|--:
 successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
-ages|待续|定位参数
 
 
 

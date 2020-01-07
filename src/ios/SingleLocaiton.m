@@ -9,9 +9,9 @@
     [self.locationManager setDelegate:nil];
 }
 
-- (void)reGeocodeAction {
+- (void)getCurrentPosition:(NSMutableDictionary *)message {
+    [self setLocationOption:message];
     //进行单次带逆地理定位请求
-    [self.locationManager requestLocationWithReGeocode:YES completionBlock:self.completionBlock];
 }
 
 - (id)init {
@@ -32,23 +32,22 @@
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
 
     //设置不允许系统暂停定位
-//    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
+    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
 
     //设置允许在后台定位
-//    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
 
     //设置定位超时时间
     [self.locationManager setLocationTimeout:DefaultLocationTimeout];
 
     //设置逆地理超时时间
     [self.locationManager setReGeocodeTimeout:DefaultReGeocodeTimeout];
+
 }
 
 
 - (void)locAction {
     //进行单次定位请求
-
-
     [self.locationManager requestLocationWithReGeocode:NO completionBlock:self.completionBlock];
 }
 
@@ -82,6 +81,49 @@
         [self.delegate PositionInfo:location Regeocode:regeocode];
     };
 }
+
+
+- (void)setLocationOption:(NSMutableDictionary *)message{
+    NSMutableDictionary *iosOption=message[@"iosOption"];
+    NSInteger desiredAccuracy= [iosOption[@"desiredAccuracy"] integerValue];
+    BOOL pausesLocationUpdatesAutomatically= [iosOption[@"pausesLocationUpdatesAutomatically"] boolValue];
+    BOOL allowsBackgroundLocationUpdates= [iosOption[@"allowsBackgroundLocationUpdates"] boolValue];
+    NSInteger locationTimeout= [iosOption[@"locationTimeout"] integerValue];
+    NSInteger reGeocodeTimeout= [iosOption[@"defaultReGeocodeTimeout"] integerValue];
+    BOOL locatingWithReGeocode= [iosOption[@"locatingWithReGeocode"] boolValue];
+
+    switch (desiredAccuracy){
+        case 1:
+            [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
+            break;
+        case 2:
+            [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+            break;
+        case 3:
+            [self.locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+            break;
+        case 4:
+            [self.locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+            break;
+        case 5:
+            [self.locationManager setDesiredAccuracy:kCLLocationAccuracyKilometer];
+            break;
+        case 6:
+            [self.locationManager setDesiredAccuracy:kCLLocationAccuracyThreeKilometers];
+            break;
+    }
+    //设置不允许系统暂停定位
+    [self.locationManager setPausesLocationUpdatesAutomatically:pausesLocationUpdatesAutomatically];
+    //设置允许在后台定位
+    [self.locationManager setAllowsBackgroundLocationUpdates:allowsBackgroundLocationUpdates];
+    //设置定位超时时间
+    [self.locationManager setLocationTimeout:locationTimeout];
+    //设置逆地理超时时间
+    [self.locationManager setReGeocodeTimeout:reGeocodeTimeout];
+    //开启定位
+    [self.locationManager requestLocationWithReGeocode:locatingWithReGeocode completionBlock:self.completionBlock];
+}
+
 #pragma clang diagnostic pop
 
 #pragma mark - Life Cycle

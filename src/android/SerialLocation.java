@@ -17,6 +17,7 @@ import com.amap.api.location.AMapLocationQualityReport;
 import _{packageName}_.R;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,67 @@ public class SerialLocation implements SerialLocationInterface{
         locationClient.setLocationOption(locationOption);
         // 设置定位监听
         locationClient.setLocationListener(locationListener);
+    }
+
+
+    public void setLocationOption(JSONObject message) throws JSONException {
+
+        JSONObject androidOption=message.getJSONObject("androidOption");
+
+        //设置逆地址定位
+        Integer locationMode = androidOption.getInt("locationMode");
+
+        Boolean gpsFirst = androidOption.getBoolean("gpsFirst");
+
+        Integer HttpTimeOut = androidOption.getInt("HttpTimeOut");
+
+        Integer interval = androidOption.getInt("interval");
+
+        Boolean needAddress = androidOption.getBoolean("needAddress");
+
+        Boolean onceLocation = androidOption.getBoolean("onceLocation");
+
+        Boolean onceLocationLatest = androidOption.getBoolean("onceLocationLatest");
+
+        Integer locationProtocol = androidOption.getInt("locationProtocol");
+
+        Boolean sensorEnable = androidOption.getBoolean("sensorEnable");
+
+        Boolean wifiScan = androidOption.getBoolean("wifiScan");
+
+        Boolean locationCacheEnable = androidOption.getBoolean("locationCacheEnable");
+
+        switch (locationMode) {
+            case 1:
+                locationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);//高精度模式
+                break;
+            case 2:
+                locationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Battery_Saving);//
+                break;
+            case 3:
+                locationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Device_Sensors);//
+                break;
+        }
+
+        switch (locationProtocol) {
+            case 1:
+                AMapLocationClientOption.setLocationProtocol(AMapLocationClientOption.AMapLocationProtocol.HTTP);//可选， 设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP
+                break;
+            case 2:
+                AMapLocationClientOption.setLocationProtocol(AMapLocationClientOption.AMapLocationProtocol.HTTPS);//可选， 设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP
+                break;
+        }
+
+        locationOption.setGpsFirst(gpsFirst);//可选，设置是否gps优先，只在高精度模式下有效。默认关闭
+        locationOption.setHttpTimeOut(HttpTimeOut);//可选，设置网络请求超时时间。默认为30秒。在仅设备模式下无效
+        locationOption.setInterval(interval);//可选，设置定位间隔。默认为2秒
+        locationOption.setNeedAddress(needAddress);//可选，设置是否返回逆地理地址信息。默认是true
+        locationOption.setOnceLocation(onceLocation);//可选，设置是否单次定位。默认是false
+        locationOption.setOnceLocationLatest(onceLocationLatest);//可选，设置是否等待wifi刷新，默认为false.如果设置为true,会自动变为单次定位，持续定位时不要使用
+        locationOption.setSensorEnable(sensorEnable);//可选，设置是否使用传感器。默认是false
+        locationOption.setWifiScan(wifiScan); //可选，设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
+        locationOption.setLocationCacheEnable(locationCacheEnable); //可选，设置是否使用缓存定位，默认为true
+//        locationOption.setGeoLanguage(AMapLocationClientOption.GeoLanguage.DEFAULT);//可选，设置逆地理信息的语言，默认值为默认语言（根据所在地区选择语言）
     }
 
     /**
@@ -121,7 +183,8 @@ public class SerialLocation implements SerialLocationInterface{
      * @author hongming.wang
      * @since 2.8.0
      */
-    public void startLocation() {
+    public void startLocation(JSONObject message) throws JSONException {
+       this.setLocationOption(message);
         // 设置定位参数
         locationClient.setLocationOption(locationOption);
         // 启动定位

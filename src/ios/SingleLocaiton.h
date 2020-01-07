@@ -1,4 +1,5 @@
 #import <AMapLocationKit/AMapLocationKit.h>
+#import <Cordova/CDVInvokedUrlCommand.h>
 
 #define DefaultLocationTimeout 10
 #define DefaultReGeocodeTimeout 5
@@ -23,8 +24,7 @@
 
 - (id)init;
 
-- (void)locAction;
 
-- (void)reGeocodeAction;
+- (void)getCurrentPosition:(NSMutableDictionary *)message;
 
 @end;
