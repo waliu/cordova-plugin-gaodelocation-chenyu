@@ -42,7 +42,7 @@ window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 
 获取单次定位
 
-getCurrentPosition(successCallback,failedCallback,ages);
+getCurrentPosition(successCallback,failedCallback,option);
 
 参数|类型|说明
 --|:--:|--:
@@ -86,7 +86,7 @@ getCurrentPosition() {
 
 开启持续定位
 
-startSerialLocation(successCallback,failedCallback,ages);
+startSerialLocation(successCallback,failedCallback,option);
 
 参数|类型|说明
 --|:--:|--:
