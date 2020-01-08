@@ -40,16 +40,31 @@ window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 ```
 
 
-获取单次定位
+### 获取单次定位
 
-getCurrentPosition(successCallback,failedCallback,option);
+##### getCurrentPosition(successCallback,failedCallback,option);
 
 参数|类型|说明
---|:--:|--:
+--|:--:|--
 successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
-option|待续|定位参数
+option|PositionOption|定位参数
 
+### <font color=red>PositionOption</font>
+
+参数|类型|说明
+--|:--:|--
+androidOption|androidOption|android定位参数
+iosOption|androidOption|ios定位参数
+
+### androidOption
+
+参数|类型|说明
+--|:--:|--
+locationMode|Number|1.精确定位 2.仅设备定位模式；3.低功耗定位模式
+gpsFirst|Bool|设置是否gps优先，只在高精度模式下有效。默认关闭
+HttpTimeOut|Number|可选，设置网络请求超时时间。默认为30秒。在仅设备模式下无效
+interval|Number|设置定位间隔。默认为2秒 连续定位有效
 ```
 //调用实例
 getCurrentPosition() {
