@@ -63,7 +63,7 @@ iosOption|androidOption|ios定位参数
 --|:--:|--
 locationMode|Number|1.精确定位 2.仅设备定位模式；3.低功耗定位模式
 gpsFirst|Bool|设置是否gps优先，只在高精度模式下有效。默认关闭
-HttpTimeOut|Number|可选，设置网络请求超时时间。默认为30秒。在仅设备模式下无效
+HttpTimeOut|Number|设置网络请求超时时间。默认为30秒。在仅设备模式下无效
 interval|Number|设置定位间隔。默认为2秒 连续定位有效
 ```
 //调用实例
@@ -72,7 +72,7 @@ getCurrentPosition() {
       androidOption:{
         locationMode:1,//定位精度 1.精确定位 2.仅设备定位模式；3.低功耗定位模式
         gpsFirst:false,//设置是否gps优先，只在高精度模式下有效。默认关闭
-        HttpTimeOut:30000,//可选，设置网络请求超时时间。默认为30秒。在仅设备模式下无效
+        HttpTimeOut:30000,//设置网络请求超时时间。默认为30秒。在仅设备模式下无效
         interval:2000,//设置定位间隔。默认为2秒 连续定位有效
         needAddress:true,//设置是否返回逆地理地址信息。默认是true
         onceLocation:false,//设置是否单次定位。默认是false
