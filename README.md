@@ -12,23 +12,24 @@ cordova-android >= 7.0.0
 
 
 
-```
-1.通过npm 安装
+```bash
+# 1.通过npm 安装
 
-$ cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
-$ npm install --save @ionic-native/gao-de-location
+cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
-2.通过github安装
-$ cordova plugin add https://github.com/waliu/cordova-plugin-gaodelocation-chenyu  --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
+npm install --save @ionic-native/gao-de-location
 
-3.或者本地安装
-$ cordova plugin add 文件路径  --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
+# 2.通过github安装
+cordova plugin add https://github.com/waliu/cordova-plugin-gaodelocation-chenyu  --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
+
+# 3.或者本地安装
+cordova plugin add 文件路径  --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
 ```
 
 #### 3.js/ts使用方法
 
-```
+```typescript
 // js项目调用
 window.GaoDe.getCurrentPosition(successCallback, failedCallback,option);
 window.GaoDe.startSerialLocation(successCallback, failedCallback,option);
@@ -61,27 +62,27 @@ iosOption|androidOption|ios定位参数
 
 参数|类型|说明
 --|:--:|--
-`locationMode`|`Number`|1.精确定位 2.仅设备定位模式；3.低功耗定位模式
-`gpsFirst`|`Bool`|设置是否gps优先，只在高精度模式下有效。默认关闭
-`HttpTimeOut`|`Number`|设置网络请求超时时间。默认为30秒。在仅设备模式下无效
-`interval`|`Number`|设置定位间隔。默认为2秒 连续定位有效
-`needAddress`|`Boolean`|设置是否返回逆地理地址信息。默认是true
-`onceLocation`|`Boolean`|设置是否单次定位。默认是false
-`onceLocationLatest`|`Boolean`|设置是否等待wifi刷新，默认为false.如果设置为true,会自动变为单次定位，持续定位时不要使用
-`locationProtocol`|`Number`|设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP。1.http 2.https
-`sensorEnable`|`Boolean`|设置是否使用传感器。默认是false
-`wifiScan`|`Boolean`|设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
-`locationCacheEnable`|`Boolean`|设置是否使用缓存定位，默认为true
+locationMode|Number|1.精确定位 2.仅设备定位模式；3.低功耗定位模式
+gpsFirst|Bool|设置是否gps优先，只在高精度模式下有效。默认关闭
+HttpTimeOut|Number|设置网络请求超时时间。默认为30秒。在仅设备模式下无效
+interval|Number|设置定位间隔。默认为2秒 连续定位有效
+needAddress|Boolean|设置是否返回逆地理地址信息。默认是true
+onceLocation|Boolean|设置是否单次定位。默认是false
+onceLocationLatest|Boolean|设置是否等待wifi刷新，默认为false.如果设置为true,会自动变为单次定位，持续定位时不要使用
+locationProtocol|Number|设置网络请求的协议。可选HTTP或者HTTPS。默认为HTTP。1.http 2.https
+sensorEnable|Boolean|设置是否使用传感器。默认是false
+wifiScan|Boolean|设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
+locationCacheEnable|Boolean|设置是否使用缓存定位，默认为true
 
 ### iosOption 
 参数|类型|说明
 --|:--:|--
-`desiredAccuracy`|`Number`|最适合导航用的定位  iOS4.0以后新增 2.精度最高的定位 3.定位精度在10米以内定位精度在10米以内 4.定位精度在100米以内 5.定位精度在1000米以内 6.3000m
-`pausesLocationUpdatesAutomatically`|`String`|指定定位是否会被系统自动暂停。默认为NO。
-`allowsBackgroundLocationUpdates`|`String`|是否允许后台定位。默认为NO。
-`locationTimeout`|`Number`|指定单次定位超时时间,默认为10s。最小值是2s。
-`reGeocodeTimeout`|`Number`|指定单次定位逆地理超时时间,默认为5s。最小值是2s。
-`locatingWithReGeocode`|`String`|是否启用逆地址定位 默认YES
+desiredAccuracy|Number|最适合导航用的定位  iOS4.0以后新增 2.精度最高的定位 3.定位精度在10米以内定位精度在10米以内 4.定位精度在100米以内 5.定位精度在1000米以内 6.3000m
+pausesLocationUpdatesAutomatically|String|指定定位是否会被系统自动暂停。默认为NO。
+allowsBackgroundLocationUpdates|String|是否允许后台定位。默认为NO。
+locationTimeout|Number|指定单次定位超时时间,默认为10s。最小值是2s。
+reGeocodeTimeout|Number|指定单次定位逆地理超时时间,默认为5s。最小值是2s。
+locatingWithReGeocode|String|是否启用逆地址定位 默认YES
 
 ```typescript
 //调用实例
