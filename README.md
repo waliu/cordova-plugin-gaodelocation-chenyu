@@ -77,7 +77,7 @@ locationCacheEnable|Boolean|设置是否使用缓存定位，默认为true
 ### iosOption 
 参数|类型|说明
 --|:--:|--
-desiredAccuracy|Number|最适合导航用的定位  iOS4.0以后新增 2.精度最高的定位 3.定位精度在10米以内定位精度在10米以内 4.定位精度在100米以内 5.定位精度在1000米以内 6.3000m
+desiredAccuracy|Number|1.最适合导航用的定位  iOS4.0以后新增 2.精度最高的定位 3.定位精度在10米以内定位精度在10米以内 4.定位精度在100米以内 5.定位精度在1000米以内 6.3000m
 pausesLocationUpdatesAutomatically|String|指定定位是否会被系统自动暂停。默认为NO。
 allowsBackgroundLocationUpdates|String|是否允许后台定位。默认为NO。
 locationTimeout|Number|指定单次定位超时时间,默认为10s。最小值是2s。
