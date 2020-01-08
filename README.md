@@ -56,7 +56,7 @@ option|PositionOption|定位参数
 参数|类型|说明
 --|:--:|--
 androidOption|androidOption|android定位参数
-iosOption|androidOption|ios定位参数
+iosOption|iosOption|ios定位参数
 
 ### androidOption
 
