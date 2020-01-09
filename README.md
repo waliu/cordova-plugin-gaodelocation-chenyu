@@ -127,7 +127,7 @@ getCurrentPosition() {
 --|:--:|--:
 successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
-option|待续|定位参数
+option|PositionOption|定位参数
 
 ### androidOption
 
