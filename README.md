@@ -40,6 +40,7 @@ window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 (<any>window).GaoDe.stopSerialLocation(successCallback, failedCallback);
 ```
 
+#### 4.定位方法说明
 
 ### 获取单次定位
 
@@ -199,7 +200,7 @@ failedCallback|funtion|回调函数
 
 
 
-获得定位信息，返回JSON格式数据:
+#### 5.返回值说明:
 
 ```
 {
@@ -231,7 +232,7 @@ failedCallback|funtion|回调函数
 }
 ```
 
-#### 4.Ionic4使用方法
+#### 6.Ionic4使用方法
 ```typescript
 // app.module.ts ionic3-
 import { GaoDeLocation , PositionOptions } from '@ionic-native/gao-de-location';
@@ -267,4 +268,4 @@ export class xxxComponent {
   }
 }
 ```
-#### 5.联系我:QQ群 390736068
+#### 7.联系我:QQ群 390736068
