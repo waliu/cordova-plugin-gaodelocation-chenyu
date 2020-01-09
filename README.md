@@ -184,7 +184,7 @@ startSerialLocation() {
 
 停止持续定位
 
-> stopSerialLocation(successCallback,failedCallback,ages);
+> stopSerialLocation(successCallback,failedCallback);
 
 参数|类型|说明
 --|:--:|--:
