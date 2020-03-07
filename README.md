@@ -202,30 +202,30 @@ failedCallback|funtion|回调函数
 
 #### 5.返回值说明:
 
-返回值|类型|说明
---|:--:|--
-latitude|string|获取纬度
-longitude|string|获取经度
-accuracy|string|获取精度信息
-formattedAddress|string|获取地址描述
-country|string|获取国家名称
-province|string|获取省名称
-city|string|获取城市名称
-district|string|获取城区名称
-citycode|string|获取城市编码信息
-adcode|string|获取区域编码信息
-street|string|获取街道名称
-number|string|街道门牌号信息
-POIName|string|获取当前位置的POI名称
-AOIName|string|获取当前位置所处AOI名称
-altitude|string|获取海拔高度信息
-speed|string|单位：米/秒
-bearing|string|获取方向角信息
-buildingId|string|获取室内定位建筑物Id
-floor|string|获取室内定位楼层
-gpsAccuracyStatus|string|获取GPS当前状态，返回值可参考AMapLocation类提供的常量
-locationType|string|获取定位结果来源
-locationDetail|string|定位信息描述
+返回值字段|返回值类型|说明| android支持|ios支持
+--|:--:|--|--|--
+latitude|string|获取纬度|√|√
+longitude|string|获取经度|√|√
+accuracy|string|获取精度信息|√|√
+formattedAddress|string|获取地址描述|√|√
+country|string|获取国家名称|√|√
+province|string|获取省名称|√|√
+city|string|获取城市名称|√|√
+district|string|获取城区名称|√|√
+citycode|string|获取城市编码信息|√|√
+adcode|string|获取区域编码信息|√|√
+street|string|获取街道名称|√|√
+number|string|街道门牌号信息|√|√
+POIName|string|获取当前位置的POI名称|√|√
+AOIName|string|获取当前位置所处AOI名称|√|√
+altitude|string|获取海拔高度信息|√|×
+speed|string|单位：米/秒|√|×
+bearing|string|获取方向角信息|√|×
+buildingId|string|获取室内定位建筑物Id|√|×
+floor|string|获取室内定位楼层|√|×
+gpsAccuracyStatus|string|获取GPS当前状态，返回值可参考AMapLocation类提供的常量|√|×
+locationType|string|获取定位结果来源|√|×
+locationDetail|string|定位信息描述|√|×
 
 #### 6.Ionic4使用方法
 ```typescript
