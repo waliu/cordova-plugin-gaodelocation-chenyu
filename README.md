@@ -2,7 +2,7 @@
 
 插件环境 cordova-android >= 7.0.0
 
-清晰的文档请看[点击转到github文档](https://github.com/waliu/cordova-plugin-gaodelocation-chenyu)
+### 清晰的文档请看：[点击转到github文档](https://github.com/waliu/cordova-plugin-gaodelocation-chenyu)
 
 
 #### 1.申请密钥
