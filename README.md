@@ -1,6 +1,6 @@
-### 高德地图定位
+### 高德地图定位 （2.0.5版本）
 
-cordova-android >= 7.0.0
+插件环境 cordova-android >= 7.0.0
 
 #### 1.申请密钥
 请参照：
@@ -13,13 +13,13 @@ cordova-android >= 7.0.0
 
 
 ```bash
-# 1.通过npm 安装
+# 1.通过npm 安装 （2.0.4版本）
 
 cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
 npm install --save @ionic-native/gao-de-location
 
-# 2.通过github安装
+# 2.通过github安装 （2.0.5版本）
 cordova plugin add https://github.com/waliu/cordova-plugin-gaodelocation-chenyu  --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
 # 3.或者本地安装
@@ -27,24 +27,30 @@ cordova plugin add 文件路径  --variable  ANDROID_API_KEY=your android key --
 
 ```
 
+
+
 #### 3.js/ts使用方法
 
 ```typescript
-// js项目调用
+// 1.js项目调用
 window.GaoDe.getCurrentPosition(successCallback, failedCallback,option);
 window.GaoDe.startSerialLocation(successCallback, failedCallback,option);
 window.GaoDe.stopSerialLocation(successCallback, failedCallback);
-// ts项目调用。
+// 2.ts/ionic项目调用。
 (<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback,option);
 (<any>window).GaoDe.startSerialLocation(successCallback, failedCallback,option);
 (<any>window).GaoDe.stopSerialLocation(successCallback, failedCallback);
+
 ```
 
+①[ionic2.0.4版本调用方式](https://ionicframework.com/docs/native/gao-de-location)
+
+②[ionic2.0.5版本调用方式](#Mark)
 #### 4.定位方法说明
 
 ### 获取单次定位
 
-##### getCurrentPosition(successCallback,failedCallback,option);
+> getCurrentPosition(successCallback,failedCallback,option);
 
 参数|类型|说明
 --|:--:|--
@@ -202,37 +208,46 @@ failedCallback|funtion|回调函数
 
 #### 5.返回值说明:
 
-返回值|类型|说明
---|:--:|--
-latitude|string|获取纬度
-longitude|string|获取经度
-accuracy|string|获取精度信息
-formattedAddress|string|获取地址描述
-country|string|获取国家名称
-province|string|获取省名称
-city|string|获取城市名称
-district|string|获取城区名称
-citycode|string|获取城市编码信息
-adcode|string|获取区域编码信息
-street|string|获取街道名称
-number|string|街道门牌号信息
-POIName|string|获取当前位置的POI名称
-AOIName|string|获取当前位置所处AOI名称
-altitude|string|获取海拔高度信息
-speed|string|单位：米/秒
-bearing|string|获取方向角信息
-buildingId|string|获取室内定位建筑物Id
-floor|string|获取室内定位楼层
-gpsAccuracyStatus|string|获取GPS当前状态，返回值可参考AMapLocation类提供的常量
-locationType|string|获取定位结果来源
-locationDetail|string|定位信息描述
+返回值字段|返回值类型|说明| android支持|ios支持
+--|:--:|--|--|--
+latitude|string|获取纬度|√|√
+longitude|string|获取经度|√|√
+accuracy|string|获取精度信息|√|√
+formattedAddress|string|获取地址描述|√|√
+country|string|获取国家名称|√|√
+province|string|获取省名称|√|√
+city|string|获取城市名称|√|√
+district|string|获取城区名称|√|√
+citycode|string|获取城市编码信息|√|√
+adcode|string|获取区域编码信息|√|√
+street|string|获取街道名称|√|√
+number|string|街道门牌号信息|√|√
+POIName|string|获取当前位置的POI名称|√|√
+AOIName|string|获取当前位置所处AOI名称|√|√
+altitude|string|获取海拔高度信息|√|×
+speed|string|单位：米/秒|√|×
+bearing|string|获取方向角信息|√|×
+buildingId|string|获取室内定位建筑物Id|√|×
+floor|string|获取室内定位楼层|√|×
+gpsAccuracyStatus|string|获取GPS当前状态，返回值可参考AMapLocation类提供的常量|√|×
+locationType|string|获取定位结果来源|√|×
+locationDetail|string|定位信息描述|√|×
 
-#### 6.Ionic4使用方法
+
+#### 6.Ionic4使用方法（插件版本 2.0.5 ）<div id="Mark"></div>
 ```typescript
 // app.module.ts ionic3-
-import { GaoDeLocation , PositionOptions } from '@ionic-native/gao-de-location';
-//ionic 4+
-import { GaoDeLocation , PositionOptions } from '@ionic-native/gao-de-location/ngx';
+import { GaoDeLocation , PositionOptions } from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location';
+//ionic 4+ 
+import {
+  GaoDeLocation,
+  PositionOptions,
+  LocationModeEnum,
+  LocationProtocolEnum,
+  DesiredAccuracyEnum,
+  PositionRes
+} from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location/ngx';
+
 ...
 
 @NgModule({
@@ -248,19 +263,89 @@ import { GaoDeLocation , PositionOptions } from '@ionic-native/gao-de-location/n
 export class AppModule { }
 ```
 ```typescript
-import { GaoDeLocation,PositionOptions } from '@ionic-native/gao-de-location';
+
+// app.module.ts ionic3-
+import { GaoDeLocation , PositionOptions } from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location';
+//ionic 4+ 
+import {
+  GaoDeLocation,
+  PositionOptions,
+  LocationModeEnum,
+  LocationProtocolEnum,
+  DesiredAccuracyEnum,
+  PositionRes
+} from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location/ngx';
+
+
 @Component({ ... })
 export class xxxComponent {
   //注入
   constructor(private gaoDeLocation: GaoDeLocation) {}
   //调用定位
-  getCurrentPosition(){
-    this.gaoDeLocation.getCurrentPosition()
-    .then((res: PositionOptions) => {
-       return console.log(res);
-    })
-    .catch((error) => console.error(error));
-  }
+  async getCurrentPosition() {
+      const positionOptions: PositionOptions = {
+        androidOption: {
+          locationMode: LocationModeEnum.Hight_Accuracy,
+          gpsFirst: false,
+          HttpTimeOut: 30000,
+          interval: 2000,
+          needAddress: true,
+          onceLocation: false,
+          onceLocationLatest: false,
+          locationProtocol: LocationProtocolEnum.HTTP,
+          sensorEnable: false,
+          wifiScan: true,
+          locationCacheEnable: true
+        }, iosOption: {
+          desiredAccuracy: DesiredAccuracyEnum.kCLLocationAccuracyBest,
+          pausesLocationUpdatesAutomatically: 'YES',
+          allowsBackgroundLocationUpdates: 'NO',
+          locationTimeout: 10,
+          reGeocodeTimeout: 5,
+        }
+      };
+      const positionRes: PositionRes = await this.gaoDeLocation.getCurrentPosition(positionOptions).catch((e: any) => {
+        console.log(e);
+      }) || null;
+      console.log(JSON.stringify(positionRes));
+    }
+  
+    startSerialLocation() {
+      const positionOptions: PositionOptions = {
+        androidOption: {
+          locationMode: LocationModeEnum.Hight_Accuracy,
+          gpsFirst: false,
+          HttpTimeOut: 30000,
+          interval: 2000,
+          needAddress: true,
+          onceLocation: false,
+          onceLocationLatest: false,
+          locationProtocol: LocationProtocolEnum.HTTP,
+          sensorEnable: false,
+          wifiScan: true,
+          locationCacheEnable: true
+        }, iosOption: {
+          desiredAccuracy: DesiredAccuracyEnum.kCLLocationAccuracyBest,
+          pausesLocationUpdatesAutomatically: 'YES',
+          allowsBackgroundLocationUpdates: 'NO',
+          locationTimeout: 10,
+          reGeocodeTimeout: 5,
+        }
+      };
+      this.gaoDeLocation.startSerialLocation(positionOptions).subscribe((positionRes: PositionRes) => {
+        console.log(JSON.stringify(positionRes));
+      });
+    }
+  
+    stopSerialLocation() {
+      const positionRes: any = this.gaoDeLocation.stopSerialLocation().catch((e) => {
+        console.log(e);
+      }) || null;
+      console.log(JSON.stringify(positionRes));
+    }
 }
 ```
 #### 7.联系我:QQ群 390736068
+
+#### 8.插件调用方式已经传到ionic官网 （官网对应的插件版本 2.0.4 ）
+[ionic官网快捷链接](https://ionicframework.com/docs/native/gao-de-location)
