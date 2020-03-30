@@ -267,9 +267,10 @@ export class AppModule { }
 ```
 ```typescript
 
-// app.module.ts ionic3-
+// xxx.component.ts 
+// ionic3-
 import { GaoDeLocation , PositionOptions } from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location';
-//ionic 4+ 
+// ionic 4+ 
 import {
   GaoDeLocation,
   PositionOptions,
