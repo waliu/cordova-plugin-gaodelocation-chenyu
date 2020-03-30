@@ -63,7 +63,7 @@
     tool.intensity = 3;
     tool.threshHold = 0.3;
     tool.noiseThreshhold = 10;
-    self.smoothedTracePoints = [tool pathOptimize:self.origTracePoints];
+ // self.smoothedTracePoints = [tool pathOptimize:self.origTracePoints];
 }
 
 
