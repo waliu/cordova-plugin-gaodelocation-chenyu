@@ -14,7 +14,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.AMapLocationQualityReport;
-import io.ionic.starter.R;
+import com.hosp123.testapp.location.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
