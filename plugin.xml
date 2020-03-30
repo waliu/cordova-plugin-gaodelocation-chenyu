@@ -93,13 +93,16 @@
         <source-file src="src/ios/SingleLocaiton.h"/>
         <source-file src="src/ios/SingleLocaiton.m"/>
 
+        <source-file src="src/ios/MASmoothPathTool.h"/>
+        <source-file src="src/ios/MASmoothPathTool.m"/>
+
         <!--        <source-file src="src/ios/BackgroundLocation.h"/>-->
         <!--        <source-file src="src/ios/BackgroundLocation.m"/>-->
 
         <framework src="ExternalAccessory.framework"/>
         <framework custom="true" src="libs/ios/AMapFoundationKit.framework"/>
         <framework custom="true" src="libs/ios/AMapLocationKit.framework"/>
-        <!--<framework custom="true" src="libs/ios/MAMapKit.framework"/>-->
+        <framework custom="true" src="libs/ios/MAMapKit.framework"/>
         <framework src="libc++.tbd"/>
         <framework src="libz.tbd"/>
         <framework src="GLKit.framework"/>
