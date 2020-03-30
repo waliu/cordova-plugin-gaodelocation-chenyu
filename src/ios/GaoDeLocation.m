@@ -2,6 +2,7 @@
 
 #import "GaoDeLocation.h"
 #import "SerialLocation.h"
+#import "MASmoothPathTool.h"
 
 @implementation GaoDeLocation
 - (void)pluginInitialize {
@@ -55,6 +56,14 @@
     [pluginResult setKeepCallback:@(true)];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+-(void)pathOptimize{
+    MASmoothPathTool *tool = [[MASmoothPathTool alloc] init];
+    tool.intensity = 3;
+    tool.threshHold = 0.3;
+    tool.noiseThreshhold = 10;
+    self.smoothedTracePoints = [tool pathOptimize:self.origTracePoints];
 }
 
 

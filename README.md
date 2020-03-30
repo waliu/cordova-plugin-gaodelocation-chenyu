@@ -2,9 +2,6 @@
 
 插件环境 cordova-android >= 7.0.0
 
-### 清晰的文档请看：[点击转到github文档](https://github.com/waliu/cordova-plugin-gaodelocation-chenyu)
-
-
 #### 1.申请密钥
 请参照：
 <br>
@@ -267,10 +264,9 @@ export class AppModule { }
 ```
 ```typescript
 
-// xxx.component.ts 
-// ionic3-
+// app.module.ts ionic3-
 import { GaoDeLocation , PositionOptions } from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location';
-// ionic 4+ 
+//ionic 4+ 
 import {
   GaoDeLocation,
   PositionOptions,
