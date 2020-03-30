@@ -19,7 +19,7 @@ cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_K
 
 npm install --save @ionic-native/gao-de-location
 
-# 2.通过github安装 （2.0.5版本）
+# 2.通过github安装 （2.0.5版本，由于github限速，可以将插件克隆或者下载到本地安装）
 cordova plugin add https://github.com/waliu/cordova-plugin-gaodelocation-chenyu  --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
 # 3.或者本地安装
