@@ -13,7 +13,7 @@
 
 
 ```bash
-# 1.通过npm 安装 （2.0.4版本）
+# 1.通过npm 安装 （2.0.5版本）
 
 cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
@@ -43,7 +43,7 @@ window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 
 ```
 
-①[ionic2.0.4版本调用方式](https://ionicframework.com/docs/native/gao-de-location)
+①[ionic2.0.5版本调用方式](https://ionicframework.com/docs/native/gao-de-location)
 
 ②[ionic2.0.5版本调用方式](#Mark)
 #### 4.定位方法说明
@@ -348,5 +348,5 @@ export class xxxComponent {
 ```
 #### 7.联系我:QQ群 390736068
 
-#### 8.插件调用方式已经传到ionic官网 （官网对应的插件版本 2.0.4 ）
+#### 8.插件调用方式已经传到ionic官网 （官网对应的插件版本 2.0.5 ）
 [ionic官网快捷链接](https://ionicframework.com/docs/native/gao-de-location)
