@@ -1,6 +1,11 @@
-### 高德地图定位 （2.0.5版本）
+### 高德地图定位 
 
 插件环境 cordova-android >= 7.0.0
+
+#### 基础功能
+
+- [x] 单次定位
+- [x] 持续定位
 
 #### 1.申请密钥
 请参照：
@@ -13,16 +18,16 @@
 
 
 ```bash
-# 1.通过npm 安装 （2.0.5版本）
+# 1.通过npm 安装 
 
 cordova plugin add cordova-plugin-gaodelocation-chenyu --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
 npm install --save @ionic-native/gao-de-location
 
-# 2.通过github安装 （2.0.5版本，由于github限速，可以将插件克隆或者下载到本地安装）
+# 2.通过github安装 
 cordova plugin add https://github.com/waliu/cordova-plugin-gaodelocation-chenyu  --variable  ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
-# 3.或者本地安
+# 3.或者本地安装
 cordova plugin add --link 文件路径  --variable ANDROID_API_KEY=your android key --variable  IOS_API_KEY=your ios key
 
 ```
@@ -43,9 +48,8 @@ window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 
 ```
 
-①[ionic2.0.5版本调用方式](https://ionicframework.com/docs/native/gao-de-location)
 
-②[ionic2.0.5版本调用方式](#Mark)
+②[ionic 版本调用方式](#Mark)
 #### 4.定位方法说明
 
 ### 获取单次定位
@@ -53,7 +57,7 @@ window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 > getCurrentPosition(successCallback,failedCallback,option);
 
 参数|类型|说明
---|:--:|--
+| :----:| :----: | :----: |
 successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
 option|PositionOption|定位参数
@@ -61,14 +65,14 @@ option|PositionOption|定位参数
 ### <font color=red>PositionOption</font>
 
 参数|类型|说明
---|:--:|--
+| :----:| :----: | :----: |
 androidOption|androidOption|android定位参数
 iosOption|iosOption|ios定位参数
 
 ### androidOption
 
 参数|类型|说明
---|:--:|--
+| :----:| :----: | :----: |
 locationMode|Number|1.精确定位 2.仅设备定位模式；3.低功耗定位模式
 gpsFirst|Boolean|设置是否gps优先，只在高精度模式下有效。默认关闭
 HttpTimeOut|Number|设置网络请求超时时间。默认为30秒。在仅设备模式下无效
@@ -83,7 +87,7 @@ locationCacheEnable|Boolean|设置是否使用缓存定位，默认为true
 
 ### iosOption 
 参数|类型|说明
---|:--:|--
+| :----:| :----: | :----: |
 desiredAccuracy|Number|1.最适合导航用的定位  iOS4.0以后新增 2.精度最高的定位 3.定位精度在10米以内 4.定位精度在100米以内 5.定位精度在1000米以内 6.3000m以内
 pausesLocationUpdatesAutomatically|String|指定定位是否会被系统自动暂停。默认为NO。
 allowsBackgroundLocationUpdates|String|是否允许后台定位。默认为NO。
@@ -130,7 +134,7 @@ getCurrentPosition() {
 > startSerialLocation(successCallback,failedCallback,option);
 
 参数|类型|说明
---|:--:|--:
+| :----:| :----: | :----: |
 successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
 option|PositionOption|定位参数
@@ -138,7 +142,7 @@ option|PositionOption|定位参数
 ### androidOption
 
 参数|类型|说明
---|:--:|--
+| :----:| :----: | :----: |
 locationMode|Number|1.精确定位 2.仅设备定位模式；3.低功耗定位模式
 gpsFirst|Boolean|设置是否gps优先，只在高精度模式下有效。默认关闭
 HttpTimeOut|Number|设置网络请求超时时间。默认为30秒。在仅设备模式下无效
@@ -154,7 +158,7 @@ locationCacheEnable|Boolean|设置是否使用缓存定位，默认为true
 ### iosOption 
 
 参数|类型|说明
---|:--:|--
+| :----:| :----: | :----: |
 pausesLocationUpdatesAutomatically|String|指定定位是否会被系统自动暂停。默认为NO。
 allowsBackgroundLocationUpdates|String|是否允许后台定位。默认为NO。
 locatingWithReGeocode|String|是否启用逆地址定位 默认YES
@@ -194,7 +198,7 @@ startSerialLocation() {
 > stopSerialLocation(successCallback,failedCallback);
 
 参数|类型|说明
---|:--:|--:
+| :----:| :----: | :----: |
 successCallback|funtion|回调函数
 failedCallback|funtion|回调函数
 
@@ -209,7 +213,7 @@ failedCallback|funtion|回调函数
 #### 5.返回值说明:
 
 返回值字段|返回值类型|说明| android支持|ios支持
---|:--:|--|--|--
+| :----:| :----: | :----: |:----:|:----:|
 latitude|string|获取纬度|√|√
 longitude|string|获取经度|√|√
 accuracy|string|获取精度信息|√|√
@@ -234,10 +238,8 @@ locationType|string|获取定位结果来源|√|×
 locationDetail|string|定位信息描述|√|×
 
 
-#### 6.Ionic4使用方法（插件版本 2.0.5 ）<div id="Mark"></div>
+#### 6.Ionic4使用方法 <div id="Mark"></div>
 ```typescript
-// app.module.ts ionic3-
-import { GaoDeLocation , PositionOptions } from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location';
 //ionic 4+ 
 import {
   GaoDeLocation,
@@ -246,8 +248,7 @@ import {
   LocationProtocolEnum,
   DesiredAccuracyEnum,
   PositionRes
-} from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location/ngx';
-
+} from "@awesome-cordova-plugins/gao-de-location/ngx";
 ...
 
 @NgModule({
@@ -265,8 +266,6 @@ export class AppModule { }
 ```typescript
 
 // app.component.ts
-// ionic3-
-import { GaoDeLocation , PositionOptions } from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location';
 // ionic 4+ 
 import {
   GaoDeLocation,
@@ -275,8 +274,7 @@ import {
   LocationProtocolEnum,
   DesiredAccuracyEnum,
   PositionRes
-} from 'cordova-plugin-gaodelocation-chenyu/ionic/gao-de-location/ngx';
-
+} from "@awesome-cordova-plugins/gao-de-location/ngx";
 
 @Component({ ... })
 export class xxxComponent {
@@ -348,5 +346,5 @@ export class xxxComponent {
 ```
 #### 7.联系我:QQ群 390736068
 
-#### 8.插件调用方式已经传到ionic官网 （官网对应的插件版本 2.0.5 ）
+#### 8.插件调用方式已经传到ionic官网 
 [ionic官网快捷链接](https://ionicframework.com/docs/native/gao-de-location)
