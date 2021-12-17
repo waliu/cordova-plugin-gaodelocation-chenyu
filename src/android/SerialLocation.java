@@ -14,7 +14,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.AMapLocationQualityReport;
-import com.hosp123.testapp.location.R;
+import com.example.chenyu.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +30,7 @@ public class SerialLocation implements SerialLocationInterface{
 
     List<SerialLocationDelegate> l = new ArrayList<>();
 
-    public SerialLocation(Context mContext) {
+    public SerialLocation(Context mContext) throws Exception {
         this.mContext = mContext;
         this.initLocation();
     }
@@ -41,7 +41,7 @@ public class SerialLocation implements SerialLocationInterface{
      * @author hongming.wang
      * @since 2.8.0
      */
-    private void initLocation() {
+    private void initLocation() throws Exception {
         //初始化client
         locationClient = new AMapLocationClient(mContext);
 
@@ -235,7 +235,7 @@ public class SerialLocation implements SerialLocationInterface{
         builder
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(getAppName(mContext))
-                .setContentText("正在后台运行")
+                .setContentText("正在后台定位")
                 .setWhen(System.currentTimeMillis());
 
         if (android.os.Build.VERSION.SDK_INT >= 16) {

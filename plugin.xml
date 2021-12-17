@@ -58,7 +58,7 @@
 
         <source-file src="src/android/SingleLocaitonInterface.java" target-dir="src/com/chenyu/GaoDeLocation"/>
 
-        <lib-file src="libs/android/AMap_Location_V4.8.0_20191210.jar"/>
+        <lib-file src="libs/android/AMap_Location_V5.6.1_20211115.jar"/>
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">

@@ -47,8 +47,6 @@
 
     NSMutableDictionary *mDict = [[NSMutableDictionary alloc] init];
 
-    mDict[@"code"] = @"200";
-
     CDVPluginResult *pluginResult = nil;
 
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:mDict];
@@ -89,8 +87,6 @@
 - (void)sendPositionInfo:(CLLocation *)location Regeocode:(AMapLocationReGeocode *)regeocode callbackId:(NSString *)callbackId {
 
     NSMutableDictionary *mDict = [[NSMutableDictionary alloc] init];
-
-    mDict[@"code"] = @"200";
 
     mDict[@"latitude"] = @(location.coordinate.latitude);
 

@@ -22,7 +22,7 @@ public class SingleLocaiton implements SingleLocaitonInterface {
 
     List<SingleLocaitonDelegate> l = new ArrayList<>();
 
-    private void initLocation() {
+    private void initLocation() throws Exception {
         //初始化client
         locationClient = new AMapLocationClient(mContext);
         locationOption = getDefaultOption();
@@ -32,7 +32,7 @@ public class SingleLocaiton implements SingleLocaitonInterface {
         locationClient.setLocationListener(locationListener);
     }
 
-    public SingleLocaiton(Context mContext) {
+    public SingleLocaiton(Context mContext) throws Exception {
         this.mContext = mContext;
         this.initLocation();
     }
