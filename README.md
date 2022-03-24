@@ -348,3 +348,41 @@ export class xxxComponent {
 
 #### 8.插件调用方式已经传到ionic官网 
 [ionic官网快捷链接](https://ionicframework.com/docs/native/gao-de-location)
+
+
+### 问题汇总 https://docs.qq.com/doc/DSkV4SWZhbmdTYURZ 
+
+V2.0.7版本
+
+1.项目打包编译报错：
+
+  ***/platforms/android/app/src/main/java/com/chenyu/GaoDeLocation/SerialLocation.java:17:
+  错误: 程序包com.example.chenyu不存在 import com.example.chenyu.R;
+                                                            ^
+  ***/platforms/android/app/src/main/java/com/chenyu/GaoDeLocation/SerialLocation.java:236:
+  错误: 程序包R不存在   .setSmallIcon(R.mipmap.ic_launcher)
+
+  解决：修改当前报错文件17行，引入的文件名为本项目包名： import com.foton.***你的APP包名***.R;
+
+2.获取定位报错 提示 “权限不足,无法定位”
+  参考高德: https://lbs.amap.com/api/android-location-sdk/guide/create-project/dev-attention#t1 
+  解决:
+  修改文件 .../SerialLocation.java 和 .../SingleLocaiton.java
+  <!-- 初始化定位 -->
+  private void initLocation() throws Exception {
+      try {
+          AMapLocationClient.updatePrivacyShow(mContext, true, true);
+          AMapLocationClient.updatePrivacyAgree(mContext, true);
+
+          //初始化client
+          locationClient = new AMapLocationClient(mContext);
+
+          locationOption = getDefaultOption();
+          //设置定位参数
+          locationClient.setLocationOption(locationOption);
+          // 设置定位监听
+          locationClient.setLocationListener(locationListener);
+      }catch (Exception e){
+          e.printStackTrace();
+      }
+  }

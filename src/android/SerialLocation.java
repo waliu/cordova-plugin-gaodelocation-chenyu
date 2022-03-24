@@ -42,15 +42,22 @@ public class SerialLocation implements SerialLocationInterface{
      * @since 2.8.0
      */
     private void initLocation() throws Exception {
-        //初始化client
-        locationClient = new AMapLocationClient(mContext);
+      try {
+          AMapLocationClient.updatePrivacyShow(mContext, true, true);
+          AMapLocationClient.updatePrivacyAgree(mContext, true);
 
-        locationOption = getDefaultOption();
-        //设置定位参数
-        locationClient.setLocationOption(locationOption);
-        // 设置定位监听
-        locationClient.setLocationListener(locationListener);
-    }
+          //初始化client
+          locationClient = new AMapLocationClient(mContext);
+
+          locationOption = getDefaultOption();
+          //设置定位参数
+          locationClient.setLocationOption(locationOption);
+          // 设置定位监听
+          locationClient.setLocationListener(locationListener);
+      }catch (Exception e){
+          e.printStackTrace();
+      }
+  }
 
 
     public void setLocationOption(JSONObject message) throws JSONException {

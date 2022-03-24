@@ -23,14 +23,22 @@ public class SingleLocaiton implements SingleLocaitonInterface {
     List<SingleLocaitonDelegate> l = new ArrayList<>();
 
     private void initLocation() throws Exception {
-        //初始化client
-        locationClient = new AMapLocationClient(mContext);
-        locationOption = getDefaultOption();
-        //设置定位参数
-        locationClient.setLocationOption(locationOption);
-        // 设置定位监听
-        locationClient.setLocationListener(locationListener);
-    }
+      try {
+          AMapLocationClient.updatePrivacyShow(mContext, true, true);
+          AMapLocationClient.updatePrivacyAgree(mContext, true);
+
+          //初始化client
+          locationClient = new AMapLocationClient(mContext);
+
+          locationOption = getDefaultOption();
+          //设置定位参数
+          locationClient.setLocationOption(locationOption);
+          // 设置定位监听
+          locationClient.setLocationListener(locationListener);
+      }catch (Exception e){
+          e.printStackTrace();
+      }
+  }
 
     public SingleLocaiton(Context mContext) throws Exception {
         this.mContext = mContext;
