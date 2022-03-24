@@ -372,7 +372,9 @@ V2.0.7版本
   修改文件 .../SerialLocation.java 和 .../SingleLocaiton.java
   
   <!-- 初始化定位 -->
+  
   private void initLocation() throws Exception {
+  
       try {
           AMapLocationClient.updatePrivacyShow(mContext, true, true);
           AMapLocationClient.updatePrivacyAgree(mContext, true);
@@ -388,4 +390,5 @@ V2.0.7版本
       }catch (Exception e){
           e.printStackTrace();
       }
+      
   }
