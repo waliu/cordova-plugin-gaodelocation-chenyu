@@ -351,9 +351,9 @@ export class xxxComponent {
 
 #### 9.问题汇总 https://docs.qq.com/doc/DSkV4SWZhbmdTYURZ 
 
-V2.0.7版本
-
-1.项目打包编译报错：
+V2.0.7版本 
+```
+1.项目打包编译报错：（电容器无法解决，只能手动修改包名）
 
   ***/platforms/android/app/src/main/java/com/chenyu/GaoDeLocation/SerialLocation.java:17:
   错误: 程序包com.example.chenyu不存在 import com.example.chenyu.R;
@@ -363,7 +363,7 @@ V2.0.7版本
 
   解决：修改当前报错文件17行，引入的文件名为本项目包名： import com.foton.***你的APP包名***.R;
 
-2.获取定位报错 提示 “权限不足,无法定位”
+2.获取定位报错 提示 “权限不足,无法定位” (github 已经解决，2.0.8 版本中会更新此问题。)
   参考高德: https://lbs.amap.com/api/android-location-sdk/guide/create-project/dev-attention#t1
   
   解决:
@@ -371,7 +371,8 @@ V2.0.7版本
   修改文件 .../SerialLocation.java 和 .../SingleLocaiton.java
   
   <!-- 初始化定位 -->
-  
+ ``` 
+ ```
   private void initLocation() throws Exception {
   
       try {
@@ -389,6 +390,6 @@ V2.0.7版本
       }catch (Exception e){
           e.printStackTrace();
       }
-      
-  }
+ }
+ ```
 
