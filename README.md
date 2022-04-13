@@ -1,4 +1,4 @@
-### 高德地图定位 
+### 高德地图定位
 
 插件环境 cordova-android >= 7.0.0
 
@@ -85,7 +85,7 @@ sensorEnable|Boolean|设置是否使用传感器。默认是false
 wifiScan|Boolean|设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
 locationCacheEnable|Boolean|设置是否使用缓存定位，默认为true
 
-### iosOption 
+### iosOption
 参数|类型|说明
 | :----:| :----: | :----: |
 desiredAccuracy|Number|1.最适合导航用的定位  iOS4.0以后新增 2.精度最高的定位 3.定位精度在10米以内 4.定位精度在100米以内 5.定位精度在1000米以内 6.3000m以内
@@ -155,7 +155,7 @@ sensorEnable|Boolean|设置是否使用传感器。默认是false
 wifiScan|Boolean|设置是否开启wifi扫描。默认为true，如果设置为false会同时停止主动刷新，停止以后完全依赖于系统刷新，定位位置可能存在误差
 locationCacheEnable|Boolean|设置是否使用缓存定位，默认为true
 
-### iosOption 
+### iosOption
 
 参数|类型|说明
 | :----:| :----: | :----: |
@@ -346,9 +346,8 @@ export class xxxComponent {
 ```
 #### 7.联系我:QQ群 390736068
 
-#### 8.插件调用方式已经传到ionic官网 
+#### 8.插件调用方式已经传到ionic官网
 [ionic官网快捷链接](https://ionicframework.com/docs/native/gao-de-location)
-
 
 #### 9.问题汇总 https://docs.qq.com/doc/DSkV4SWZhbmdTYURZ 
 
@@ -392,3 +391,4 @@ V2.0.7版本
       }
       
   }
+
