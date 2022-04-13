@@ -352,7 +352,8 @@ export class xxxComponent {
 #### 9.常见问题
     V 2.0.7
     1）版本更新到V2.0.7后打包报错：
-![](C:/Users/zhang/Desktop/image.jpg)
+![](C:/Users/zhang/Desktop/image.jpg)![image](https://user-images.githubusercontent.com/14830459/163117571-b4b2c9c0-1c9a-4598-8095-8c0dc84e85c6.jpg)
+
 
     解决：修改当前报错文件17行，引入的文件名为本项目包名。
     2) 定位报错 提示 “权限不足,无法定位”
