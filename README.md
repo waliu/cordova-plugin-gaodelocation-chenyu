@@ -38,10 +38,37 @@ cordova plugin add --link 文件路径  --variable ANDROID_API_KEY=your android 
 
 ```typescript
 // 1.js项目调用
+/**
+ * 单次定位
+ * @param success 成功执行的回调
+ * @param error 失败执行的回调
+ * @param PositionOption 参数对象
+ * @return 返回值说明
+ */
 window.GaoDe.getCurrentPosition(successCallback, failedCallback,option);
+/**
+ * 持续定位
+ * @param success 成功执行的回调
+ * @param error 失败执行的回调
+ * @param PositionOption 参数对象
+ * @return 返回值说明
+ */
 window.GaoDe.startSerialLocation(successCallback, failedCallback,option);
+/**
+ * 停止持续定位
+ * @param success 成功执行的回调
+ * @param error 失败执行的回调
+ */
 window.GaoDe.stopSerialLocation(successCallback, failedCallback);
-// 2.ts/ionic项目调用。
+
+// 2.ts/ionic 2+ 项目调用。
+// 可以使用以下三种方式调用
+// ① (<any>window).方法名
+// ② window["GaoDe"].方法名
+// ③ 通过声明.d.ts的方式 例如 declare GaoDe; GaoDe.方法名
+// ④ 通过ionic native 的方式
+[ionic6](https://ionicframework.com/docs/native/gao-de-location)
+// 以下为①的调用示例:
 (<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback,option);
 (<any>window).GaoDe.startSerialLocation(successCallback, failedCallback,option);
 (<any>window).GaoDe.stopSerialLocation(successCallback, failedCallback);
