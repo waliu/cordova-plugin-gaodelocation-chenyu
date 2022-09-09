@@ -67,7 +67,6 @@ window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 // ② window["GaoDe"].方法名
 // ③ 通过声明.d.ts的方式 例如 declare GaoDe; GaoDe.方法名
 // ④ 通过ionic native 的方式
-[ionic6](https://ionicframework.com/docs/native/gao-de-location)
 // 以下为①的调用示例:
 (<any>window).GaoDe.getCurrentPosition(successCallback, failedCallback,option);
 (<any>window).GaoDe.startSerialLocation(successCallback, failedCallback,option);
@@ -75,8 +74,7 @@ window.GaoDe.stopSerialLocation(successCallback, failedCallback);
 
 ```
 
-
-②[ionic 版本调用方式](#Mark)
+[ionic native 调用方式](#Mark)
 #### 4.定位方法说明
 
 ### 获取单次定位
@@ -266,6 +264,7 @@ locationDetail|string|定位信息描述|√|×
 
 
 #### 6.Ionic4使用方法 <div id="Mark"></div>
+[ionic官网快捷链接](https://ionicframework.com/docs/native/gao-de-location)
 ```typescript
 //ionic 4+ 
 import {
@@ -371,12 +370,10 @@ export class xxxComponent {
     }
 }
 ```
-#### 7.联系我:QQ群 390736068
+#### 7.联系我:
+     QQ群: 390736068
 
-#### 8.插件调用方式已经传到ionic官网
-[ionic官网快捷链接](https://ionicframework.com/docs/native/gao-de-location)
-
-#### 9.问题汇总 https://docs.qq.com/doc/DSkV4SWZhbmdTYURZ 
+#### 8.问题汇总 
 
 V2.0.7版本 
 ```
@@ -390,33 +387,5 @@ V2.0.7版本
 
   解决：修改当前报错文件17行，引入的文件名为本项目包名： import com.foton.***你的APP包名***.R;
 
-2.获取定位报错 提示 “权限不足,无法定位” (github 已经解决，2.0.8 版本中会更新此问题。)
-  参考高德: https://lbs.amap.com/api/android-location-sdk/guide/create-project/dev-attention#t1
-  
-  解决:
-  
-  修改文件 .../SerialLocation.java 和 .../SingleLocaiton.java
-  
-  <!-- 初始化定位 -->
- ``` 
- ```
-  private void initLocation() throws Exception {
-  
-      try {
-          AMapLocationClient.updatePrivacyShow(mContext, true, true);
-          AMapLocationClient.updatePrivacyAgree(mContext, true);
-
-          //初始化client
-          locationClient = new AMapLocationClient(mContext);
-
-          locationOption = getDefaultOption();
-          //设置定位参数
-          locationClient.setLocationOption(locationOption);
-          // 设置定位监听
-          locationClient.setLocationListener(locationListener);
-      }catch (Exception e){
-          e.printStackTrace();
-      }
- }
  ```
 
